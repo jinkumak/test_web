@@ -4,11 +4,19 @@
   <title>Location Test</title>
 </head>
 <body>
+  <button onclick="downloadFile()">Download File</button>
   <h2>My Location Test</h2>
   <button onclick="getLocation()">Get Location</button>
   <pre id="result"></pre>
 
   <script>
+    function downloadFile() {
+      const link = document.createElement("a");
+      link.href = "data.txt";       // File path
+      link.download = "data.txt";   // Downloaded file name
+      link.click();
+   }
+    
     function getLocation() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
